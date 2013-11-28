@@ -55,8 +55,9 @@ namespace PyramidPanic
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            //Keyboardstate gemaakt
             KeyboardState newState = Keyboard.GetState();
-
+            //Sluit spel als op Esc word gedrukt
             if (newState.IsKeyDown(Keys.Escape)){
                 Exit();
             }
