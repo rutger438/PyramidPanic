@@ -13,23 +13,37 @@ namespace PyramidPanic
 {
     public class PyramidPanic : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        //Fields
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
 
         public PyramidPanic()
         {
-            graphics = new GraphicsDeviceManager(this);
+            this.graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
         protected override void Initialize()
         {
+            //Veranderd de titel van het canvas
+            this.Window.Title = "Pyramid Panic";
+
+            //Veranderd de breedte van het canvas
+            this.graphics.PreferredBackBufferWidth = 640;
+
+            //Veranderd de hoogte van het canvas
+            this.graphics.PreferredBackBufferHeight = 480;
+
+            this.IsMouseVisible = true;
+
+            //Past de verandering toe
+            this.graphics.ApplyChanges();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         protected override void UnloadContent()
@@ -41,13 +55,18 @@ namespace PyramidPanic
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            KeyboardState newState = Keyboard.GetState();
+
+            if (newState.IsKeyDown(Keys.Escape)){
+                Exit();
+            }
 
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
             base.Draw(gameTime);
         }
     }
