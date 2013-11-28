@@ -1,0 +1,11 @@
+# executables #
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# directories #
+**/bin/**
+**/obj/**
