@@ -18,7 +18,22 @@ namespace PyramidPanic
         private SpriteBatch spriteBatch;
         
         // Maak een variabele aan van het type playscene
+        private EndScene endScene;
+
+        // Maak een variabele aan van het type playscene
         private GameOverScene gameOverScene;
+
+        // Maak een variabele aan van het type playscene
+        private HelpScene helpScene;
+
+        // Maak een variabele aan van het type playscene
+        private PlayScene playScene;
+
+        // Maak een variabele aan van het type playscene
+        private StartScene startScene;
+
+        //De variabele die alle verschillende Scene-objecten kan bevatten is van het type IGameState dit is geen class maar een nieuw objecttype interface
+        private IGameState gameState;
 
         public PyramidPanic()
         {
@@ -47,7 +62,17 @@ namespace PyramidPanic
         protected override void LoadContent()
         {
             //roept de update method aan van de Playscene object
+            this.endScene = new EndScene(this);
+            //roept de update method aan van de Playscene object
             this.gameOverScene = new GameOverScene(this);
+            //roept de update method aan van de Playscene object
+            this.helpScene = new HelpScene(this);
+            //roept de update method aan van de Playscene object
+            this.gameOverScene = new GameOverScene(this);
+            //roept de update method aan van de Playscene object
+            this.gameOverScene = new GameOverScene(this);
+
+            this.gameState = this.startScene;
 
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -67,7 +92,7 @@ namespace PyramidPanic
             if (newState.IsKeyDown(Keys.Escape)){
                 Exit();
             }
-            this.gameOverScene.Update(gameTime);
+            this.gameState.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -79,7 +104,7 @@ namespace PyramidPanic
             //roep de begin() method aan van het spritebatch object
             this.spriteBatch.Begin();
             //roept de draw method aan van het startscene object
-            this.gameOverScene.Draw(gameTime);
+            this.gameState.Draw(gameTime);
             //roep de End() method aan van het spritebatch object
             this.spriteBatch.End();
 
