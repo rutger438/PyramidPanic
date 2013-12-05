@@ -35,6 +35,36 @@ namespace PyramidPanic
         //De variabele die alle verschillende Scene-objecten kan bevatten is van het type IGameState dit is geen class maar een nieuw objecttype interface
         private IGameState gameState;
 
+        //properties
+
+        #region Properties
+        public IGameState GameState
+        {
+            get { return this.gameState; }
+            set { this.gameState = value; }
+        }
+        public EndScene EndScene
+        {
+            get { return this.endScene; }
+        }
+        public GameOverScene GameOverScene
+        {
+            get { return this.gameOverScene; }
+        }
+        public HelpScene HelpScene
+        {
+            get { return this.helpScene; }
+        }
+        public PlayScene PlayScene
+        {
+            get { return this.playScene; }
+        }
+        public StartScene StartScene
+        {
+            get { return this.startScene; }
+        } 
+        #endregion
+
         public PyramidPanic()
         {
             this.graphics = new GraphicsDeviceManager(this);
@@ -68,9 +98,9 @@ namespace PyramidPanic
             //roept de update method aan van de Playscene object
             this.helpScene = new HelpScene(this);
             //roept de update method aan van de Playscene object
-            this.gameOverScene = new GameOverScene(this);
+            this.playScene = new PlayScene(this);
             //roept de update method aan van de Playscene object
-            this.gameOverScene = new GameOverScene(this);
+            this.startScene = new StartScene(this);
 
             this.gameState = this.startScene;
 

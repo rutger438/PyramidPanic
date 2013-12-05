@@ -34,7 +34,10 @@ namespace PyramidPanic
         //Update
         public void Update(GameTime gameTime)
         {
-
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
+            {
+                this.game.GameState = this.game.PlayScene;
+            }
         }
         //Draw
         public void Draw(GameTime gameTime)

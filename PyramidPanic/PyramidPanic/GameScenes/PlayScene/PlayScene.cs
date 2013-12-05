@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    class PlayScene : IGameState
+    public class PlayScene : IGameState
     {
         //Fields
         private PyramidPanic game;
