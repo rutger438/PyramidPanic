@@ -18,7 +18,7 @@ namespace PyramidPanic
         private SpriteBatch spriteBatch;
         
         // Maak een variabele aan van het type playscene
-        private PlayScene playScene;
+        private GameOverScene gameOverScene;
 
         public PyramidPanic()
         {
@@ -47,7 +47,7 @@ namespace PyramidPanic
         protected override void LoadContent()
         {
             //roept de update method aan van de Playscene object
-            this.playScene = new PlayScene(this);
+            this.gameOverScene = new GameOverScene(this);
 
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -67,7 +67,7 @@ namespace PyramidPanic
             if (newState.IsKeyDown(Keys.Escape)){
                 Exit();
             }
-            this.playScene.Update(gameTime);
+            this.gameOverScene.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -79,7 +79,7 @@ namespace PyramidPanic
             //roep de begin() method aan van het spritebatch object
             this.spriteBatch.Begin();
             //roept de draw method aan van het startscene object
-            this.playScene.Draw(gameTime);
+            this.gameOverScene.Draw(gameTime);
             //roep de End() method aan van het spritebatch object
             this.spriteBatch.End();
 

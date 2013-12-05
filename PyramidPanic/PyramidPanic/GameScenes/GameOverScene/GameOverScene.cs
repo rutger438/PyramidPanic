@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace PyramidPanic.GameScenes.GameOverScene
+namespace PyramidPanic
 {
     class GameOverScene
     {
@@ -40,7 +40,7 @@ namespace PyramidPanic.GameScenes.GameOverScene
         //Draw
         public void Draw(GameTime gameTime)
         {
-            this.game.GraphicsDevice.Clear(Color.Gray);
+            this.game.GraphicsDevice.Clear(Color.Blue);
         }
     }
 }
