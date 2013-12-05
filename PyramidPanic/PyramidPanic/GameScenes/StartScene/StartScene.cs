@@ -34,9 +34,13 @@ namespace PyramidPanic
         //Update
         public void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
+            if (Input.EdgeDetectKeyDown(Keys.Right))
             {
                 this.game.GameState = this.game.PlayScene;
+            }
+            if (Input.EdgeDetectKeyDown(Keys.Left))
+            {
+                this.game.GameState = this.game.EndScene;
             }
         }
         //Draw

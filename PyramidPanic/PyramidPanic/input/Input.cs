@@ -15,8 +15,27 @@ namespace PyramidPanic
     public static class Input
     {
         //Fields
-        private KeyboardState ks, oks;
-        private MouseState ms, oms;
-        private GamePadState gps, ogps;
+        private static KeyboardState ks, oks;
+        private static MouseState ms, oms;
+        private static GamePadState gps, ogps;
+        
+        static Input()
+        {
+            ks = Keyboard.GetState();
+            gps = GamePad.GetState(PlayerIndex.One);
+        }
+
+        public static void Update()
+        {
+            ogps = gps;
+            oks = ks;
+            ks = Keyboard.GetState();
+            gps = GamePad.GetState(PlayerIndex.One);
+        }
+        public static bool EdgeDetectKeyDown(Keys key)
+        {
+            //Dit is de edgedetector voor een willekeurige toets op het toetsenbord
+            return (ks.IsKeyDown(key) && oks.IsKeyUp(key));
+        }
     }
 }

@@ -123,6 +123,7 @@ namespace PyramidPanic
                 Exit();
             }
             this.gameState.Update(gameTime);
+            Input.Update();
             base.Update(gameTime);
         }
 
