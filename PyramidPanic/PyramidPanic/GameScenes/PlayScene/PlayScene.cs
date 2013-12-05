@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -11,12 +12,12 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PyramidPanic
 {
-    public class StartScene
+    class PlayScene
     {
         //Fields
         private PyramidPanic game;
         //Constructor
-        public StartScene(PyramidPanic game)
+        public PlayScene(PyramidPanic game)
         {
             this.game = game;
             this.Initialize();
@@ -39,7 +40,7 @@ namespace PyramidPanic
         //Draw
         public void Draw(GameTime gameTime)
         {
-            this.game.GraphicsDevice.Clear(Color.Cyan);
+            this.game.GraphicsDevice.Clear(Color.Gray);
         }
     }
 }

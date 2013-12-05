@@ -16,6 +16,9 @@ namespace PyramidPanic
         //Fields
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
+        
+        // Maak een variabele aan van het type playscene
+        private PlayScene playScene;
 
         public PyramidPanic()
         {
@@ -43,6 +46,9 @@ namespace PyramidPanic
 
         protected override void LoadContent()
         {
+            //roept de update method aan van de Playscene object
+            this.playScene = new PlayScene(this);
+
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
@@ -61,13 +67,22 @@ namespace PyramidPanic
             if (newState.IsKeyDown(Keys.Escape)){
                 Exit();
             }
-
+            this.playScene.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+
+            GraphicsDevice.Clear(Color.Purple);
+
+            //roep de begin() method aan van het spritebatch object
+            this.spriteBatch.Begin();
+            //roept de draw method aan van het startscene object
+            this.playScene.Draw(gameTime);
+            //roep de End() method aan van het spritebatch object
+            this.spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
