@@ -38,6 +38,8 @@ namespace PyramidPanic
         //properties
 
         #region Properties
+        //een property is om een private field buiten de class op te kunnen vragen
+        //properties zijn in pascalcasing geschreven
         public IGameState GameState
         {
             get { return this.gameState; }
@@ -62,7 +64,11 @@ namespace PyramidPanic
         public StartScene StartScene
         {
             get { return this.startScene; }
-        } 
+        }
+        public SpriteBatch SpriteBatch
+        {
+            get { return this.spriteBatch; }
+        }
         #endregion
 
         public PyramidPanic()
