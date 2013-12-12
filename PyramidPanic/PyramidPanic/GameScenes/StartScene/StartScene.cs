@@ -16,6 +16,7 @@ namespace PyramidPanic
         //Fields
         private PyramidPanic game;
         private Image background, title;
+        private Menu menu;
         //Constructor
         public StartScene(PyramidPanic game)
         {
@@ -31,6 +32,7 @@ namespace PyramidPanic
         //LoadContent
         public void LoadContent()
         {
+            this.menu = new Menu(game);
             this.title = new Image(this.game, @"StartScene\Title", new Vector2(100, 35));
             this.background = new Image(this.game, @"StartScene\Background", Vector2.Zero);
         }
@@ -52,6 +54,7 @@ namespace PyramidPanic
             this.game.GraphicsDevice.Clear(Color.Cyan);
             this.background.Draw(gameTime);
             this.title.Draw(gameTime);
+            this.menu.Draw(gameTime);
         }
     }
 }

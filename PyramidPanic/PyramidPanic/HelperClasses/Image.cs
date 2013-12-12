@@ -22,10 +22,15 @@ namespace PyramidPanic
         //De Rectange gebruiken we voor collition detection;
         private PyramidPanic game;
         //game geeft alle public variables van pyramid panic
+        private Color color = Color.White;
         #endregion
 
         #region properties
         //Properties
+        public Color Color
+        {
+            set { this.color = value; }
+        }
         #endregion
 
         #region Constructor
