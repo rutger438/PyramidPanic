@@ -37,7 +37,7 @@ namespace PyramidPanic
         {
             if (Input.EdgeDetectKeyDown(Keys.Right))
             {
-                this.game.GameState = this.game.GameOverScene;
+                this.game.GameState = this.game.EndScene;
             }
             if (Input.EdgeDetectKeyDown(Keys.Left))
             {
@@ -47,7 +47,7 @@ namespace PyramidPanic
         //Draw
         public void Draw(GameTime gameTime)
         {
-            this.game.GraphicsDevice.Clear(Color.Gray);
+            this.game.GraphicsDevice.Clear(Color.PeachPuff);
         }
     }
 }

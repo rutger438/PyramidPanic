@@ -41,7 +41,7 @@ namespace PyramidPanic
             }
             if (Input.EdgeDetectKeyDown(Keys.Left))
             {
-                this.game.GameState = this.game.GameOverScene;
+                this.game.GameState = this.game.ScoresScene;
             }
         }
         //Draw

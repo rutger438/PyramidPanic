@@ -37,7 +37,7 @@ namespace PyramidPanic
         {
             if (Input.EdgeDetectKeyDown(Keys.Right))
             {
-                this.game.GameState = this.game.HelpScene;
+                this.game.GameState = this.game.StartScene;
             }
             if (Input.EdgeDetectKeyDown(Keys.Left))
             {

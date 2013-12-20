@@ -17,20 +17,23 @@ namespace PyramidPanic
         private GraphicsDeviceManager graphics;
         private SpriteBatch spriteBatch;
         
-        // Maak een variabele aan van het type playscene
+        // Maak een variabele aan van het type endscene
         private EndScene endScene;
 
-        // Maak een variabele aan van het type playscene
+        // Maak een variabele aan van het type gameoverscene
         private GameOverScene gameOverScene;
 
-        // Maak een variabele aan van het type playscene
+        // Maak een variabele aan van het type helpscene
         private HelpScene helpScene;
 
         // Maak een variabele aan van het type playscene
         private PlayScene playScene;
 
-        // Maak een variabele aan van het type playscene
+        // Maak een variabele aan van het type startscene
         private StartScene startScene;
+
+        // Maak een variabele aan van het type scoresscene
+        private ScoresScene scoresScene;
 
         //De variabele die alle verschillende Scene-objecten kan bevatten is van het type IGameState dit is geen class maar een nieuw objecttype interface
         private IGameState gameState;
@@ -65,6 +68,10 @@ namespace PyramidPanic
         {
             get { return this.startScene; }
         }
+        public ScoresScene ScoresScene
+        {
+            get { return this.scoresScene; }
+        }
         public SpriteBatch SpriteBatch
         {
             get { return this.spriteBatch; }
@@ -97,16 +104,18 @@ namespace PyramidPanic
 
         protected override void LoadContent()
         {
-            //roept de update method aan van de Playscene object
+            //roept de update method aan van de endscene object
             this.endScene = new EndScene(this);
-            //roept de update method aan van de Playscene object
+            //roept de update method aan van de gameoverscene object
             this.gameOverScene = new GameOverScene(this);
-            //roept de update method aan van de Playscene object
+            //roept de update method aan van de helpscene object
             this.helpScene = new HelpScene(this);
             //roept de update method aan van de Playscene object
             this.playScene = new PlayScene(this);
-            //roept de update method aan van de Playscene object
+            //roept de update method aan van de startscene object
             this.startScene = new StartScene(this);
+            //roept de update method aan van de scoresscene object
+            this.scoresScene = new ScoresScene(this);
 
             this.gameState = this.startScene;
 
