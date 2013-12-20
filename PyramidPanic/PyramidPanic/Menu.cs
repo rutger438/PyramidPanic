@@ -16,8 +16,11 @@ namespace PyramidPanic
     {
         #region Fields
         Image startButton, loadButton, quitButton, helpButton, scoresButton;
+        //We maken een variablele aan van het type button. deze variablele kan maar 5 waarden hebben. we kunne altijd nieuwe toevoegen.
         PyramidPanic game;
         List<Image>buttonList = new List<Image>();
+        private enum Button { Start, Load, Help, Scores, Quit };
+        private Button buttonState = Button.Start;
         #endregion
 
         #region Properties
@@ -44,6 +47,8 @@ namespace PyramidPanic
             this.scoresButton = new Image(this.game, @"StartScene\Button_scores", new Vector2(380f, 440f)));
             buttonList.Add(
             this.quitButton = new Image(this.game, @"StartScene\Button_quit", new Vector2(500f, 440f)));
+
+            this.startButton.Color = Color.Gold;
         }
         public void Initialize()
         {
@@ -51,7 +56,55 @@ namespace PyramidPanic
         }
 
         #region Update
-        
+        public void Update(GameTime gameTime)
+        {
+            if (Input.EdgeDetectKeyDown(Keys.Right) && buttonState != Button.Quit)
+            {
+                buttonState++;
+                foreach (Image button in this.buttonList)
+                {
+                    button.Color = Color.White;
+                }
+            }
+            if (Input.EdgeDetectKeyDown(Keys.Left) && buttonState != Button.Start)
+            {
+                buttonState--;
+                foreach (Image button in this.buttonList)
+                {
+                    button.Color = Color.White;
+                }
+            }
+            switch (this.buttonState)
+            {
+                case Button.Start:
+                    this.startButton.Color = Color.Gold;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        game.GameState = game.PlayScene;
+                    }
+                    break;
+                case Button.Load:
+                    this.loadButton.Color = Color.Gold;
+                    break;
+                case Button.Help:
+                    this.helpButton.Color = Color.Gold;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        game.GameState = game.HelpScene;
+                    }
+                    break;
+                case Button.Scores:
+                    this.scoresButton.Color = Color.Gold;
+                    break;
+                case Button.Quit:
+                    this.quitButton.Color = Color.Gold;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        game.Exit();
+                    }
+                    break;
+            }
+        }
         #endregion
 
         #region Draw

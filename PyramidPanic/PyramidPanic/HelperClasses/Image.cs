@@ -52,7 +52,7 @@ namespace PyramidPanic
         #region Draw
         public void Draw(GameTime gameTime)
         {
-            this.game.SpriteBatch.Draw(this.texture, this.rectangle, Color.White);
+            this.game.SpriteBatch.Draw(this.texture, this.rectangle, this.color);
         } 
         #endregion
     }
