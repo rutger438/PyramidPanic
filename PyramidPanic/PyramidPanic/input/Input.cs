@@ -17,16 +17,19 @@ namespace PyramidPanic
         //Fields
         private static KeyboardState ks, oks;
         private static MouseState ms, oms;
+        public static Rectangle mouseRect;
         private static GamePadState gps, ogps;
         
         static Input()
         {
             ks = Keyboard.GetState();
             gps = GamePad.GetState(PlayerIndex.One);
+            ms = Mouse.GetState();
         }
 
         public static void Update()
         {
+            mouseRect = new Rectangle(ms.X, ms.Y, 1, 1);
             ogps = gps;
             oks = ks;
             ks = Keyboard.GetState();

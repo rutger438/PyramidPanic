@@ -58,6 +58,21 @@ namespace PyramidPanic
         #region Update
         public void Update(GameTime gameTime)
         {
+            MouseState mState;
+            mState = Mouse.GetState();
+            Rectangle mouseRect = new Rectangle(mState.X, mState.Y, 2, 2);
+            if (mouseRect.Intersects(helpButton.Rectangle))
+            {
+                this.helpButton.Color = Color.Gold;
+                if (mState.LeftButton == ButtonState.Pressed)
+                {
+                    game.GameState = game.HelpScene;
+                }
+            }
+            else
+            {
+                this.helpButton.Color = Color.White;
+            }
             if (Input.EdgeDetectKeyDown(Keys.Right) && buttonState != Button.Quit)
             {
                 buttonState++;
