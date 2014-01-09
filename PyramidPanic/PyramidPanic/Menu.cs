@@ -95,6 +95,10 @@ namespace PyramidPanic
                     break;
                 case Button.Scores:
                     this.scoresButton.Color = Color.Gold;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        this.game.GameState = this.game.ScoresScene;
+                    }
                     break;
                 case Button.Quit:
                     this.quitButton.Color = Color.Gold;

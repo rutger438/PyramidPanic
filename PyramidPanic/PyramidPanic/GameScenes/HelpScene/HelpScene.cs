@@ -15,6 +15,7 @@ namespace PyramidPanic
     public class HelpScene : IGameState
     {
         //Fields
+        private  Image quitButton;
         private PyramidPanic game;
         //Constructor
         public HelpScene(PyramidPanic game)
@@ -25,29 +26,28 @@ namespace PyramidPanic
         //Initialise
         protected void Initialize()
         {
-
+            this.LoadContent();
         }
         //LoadContent
         public void LoadContent()
         {
-
+            this.quitButton = new Image(this.game, @"StartScene\Button_quit", new Vector2(500f, 440f));
+            this.quitButton.Color = Color.Gold;
         }
         //Update
         public void Update(GameTime gameTime)
         {
-            if (Input.EdgeDetectKeyDown(Keys.Right))
+            if (Input.EdgeDetectKeyDown(Keys.Enter))
             {
-                this.game.GameState = this.game.EndScene;
-            }
-            if (Input.EdgeDetectKeyDown(Keys.Left))
-            {
-                this.game.GameState = this.game.ScoresScene;
+                game.GameState = game.StartScene;
             }
         }
         //Draw
         public void Draw(GameTime gameTime)
         {
+            
             this.game.GraphicsDevice.Clear(Color.GreenYellow);
+            this.quitButton.Draw(gameTime);
         }
     }
 }
