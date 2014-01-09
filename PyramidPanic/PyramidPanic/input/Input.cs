@@ -37,5 +37,10 @@ namespace PyramidPanic
             //Dit is de edgedetector voor een willekeurige toets op het toetsenbord
             return (ks.IsKeyDown(key) && oks.IsKeyUp(key));
         }
+        public static bool EdgeDetectMousePressLeft()
+        {
+            //Dit is de edgedetector voor Linker muis knop, Hij werkt alleen als de oude state niet ingedrukt is dus ingedrukt houden van de knop doet niks.
+            return ((ms.LeftButton == ButtonState.Pressed)&&(oms.LeftButton == ButtonState.Released));
+        }
     }
 }

@@ -35,6 +35,9 @@ namespace PyramidPanic
         // Maak een variabele aan van het type scoresscene
         private ScoresScene scoresScene;
 
+        // Maak een variabele aan van het type loadscene
+        private LoadScene loadScene;
+
         //De variabele die alle verschillende Scene-objecten kan bevatten is van het type IGameState dit is geen class maar een nieuw objecttype interface
         private IGameState gameState;
 
@@ -71,6 +74,10 @@ namespace PyramidPanic
         public ScoresScene ScoresScene
         {
             get { return this.scoresScene; }
+        }
+        public LoadScene LoadScene
+        {
+            get { return this.loadScene; }
         }
         public SpriteBatch SpriteBatch
         {
@@ -116,6 +123,8 @@ namespace PyramidPanic
             this.startScene = new StartScene(this);
             //roept de update method aan van de scoresscene object
             this.scoresScene = new ScoresScene(this);
+            //roept de update method aan van de loadscene object
+            this.loadScene = new LoadScene(this);
 
             this.gameState = this.startScene;
 

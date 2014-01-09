@@ -85,6 +85,10 @@ namespace PyramidPanic
                     break;
                 case Button.Load:
                     this.loadButton.Color = Color.Gold;
+                    if (Input.EdgeDetectKeyDown(Keys.Enter))
+                    {
+                        game.GameState = game.LoadScene;
+                    }
                     break;
                 case Button.Help:
                     this.helpButton.Color = Color.Gold;
